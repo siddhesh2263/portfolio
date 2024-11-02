@@ -65,7 +65,7 @@ Even if an entire node fails, the application will remain accessible through oth
 * Volumes ensure data persistence.
 * Deployments handle stateless pod replication, while StatefulSets manage stateful applications.
 
-![image tooltip here](/assets/kubernetes/image_1.png)
+![image tooltip here](assets/kubernetes/image_1.png)
 
 <br/>
 
@@ -86,13 +86,13 @@ Master nodes control the worker nodes and run four key processes:
 3. Controller Manager: Detects state changes, such as when a pod crashes, and ensures the cluster remains in its desired state by interacting with the scheduler to request pod restarts.
 4. etcd: Serves as the cluster’s key-value store, maintaining the cluster's state. It stores information about resource availability, state changes, and more. However, no application data is stored here.
 
-![image tooltip here](/assets/kubernetes/001_master_node_api.png)
+![image tooltip here](assets/kubernetes/001_master_node_api.png)
 
 In practice, a Kubernetes cluster is composed of multiple master nodes for high availability. Master nodes are critical but don't require as many resources as worker nodes. It's easy to scale the cluster by adding new master or node servers.
 
-![image tooltip here](/assets/kubernetes/002_master_node_all_processed.png)
+![image tooltip here](assets/kubernetes/002_master_node_all_processed.png)
 
-![image tooltip here](/assets/kubernetes/003_example_cluster.png)
+![image tooltip here](assets/kubernetes/003_example_cluster.png)
 
 #### Minikube
 Minikube allows you to run both master and node processes on a single machine, which is ideal for local development and testing. It provides an environment for testing Kubernetes features without needing a full multi-node cluster.
@@ -107,7 +107,7 @@ This command displays the nodes in your Minikube cluster, verifying that the clu
 kubectl get nodes
 ```
 
-![image tooltip here](/assets/kubernetes/004_minikube.png)
+![image tooltip here](assets/kubernetes/004_minikube.png)
 
 In Kubernetes, individual pods are not created manually. Instead, this process is abstracted by using deployments, which manage the lifecycle of the pods.
 
@@ -183,7 +183,7 @@ kubectl apply -f nginx-deployment.yaml
 ```
 If changes are made to the YAML file, run the same command to apply the updates to the cluster.
 
-![image tooltip here](/assets/kubernetes/005_config_file_for_deployment.png)
+![image tooltip here](assets/kubernetes/005_config_file_for_deployment.png)
 
 <!-- << 1:02:32 >> -->
 
