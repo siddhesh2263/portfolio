@@ -13,7 +13,7 @@ Threads wouldn't be ideal where a lot of computation is involved. If there are o
 
 The below image shows usage of threads using Python's inbuilt 'threading' module. The `do_something` function is passed to the target without parenthesis, followed by the function arguments. The `start()` function is called to create the tread and start execution. The `join()` function is used to stop the code flow till all the threads are executed. However, this `join()` function cannot be added at the end of the `start()` function at the end of each iteration, since it would behave same as synchronous operation. To overcome this, the threads are stored in a list, and are checked if their execution is completed in a different loop.
 
-![image tooltip here](/assets/python_threading/001_thread_direct_use.png)
+![image tooltip here]({{"/assets/python_threading/001_thread_direct_use.png" | relative_url }})
 
 <br/>
 
