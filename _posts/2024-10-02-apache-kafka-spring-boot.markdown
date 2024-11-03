@@ -5,6 +5,9 @@ date:   2024-10-02 00:02:29 -0400
 categories: jekyll update
 ---
 
+Click [here][repo-link] for code repository.
+
+
 ## 9/10/2024
 
 ### Kafka Overview
@@ -167,3 +170,5 @@ The image shows log outputs of a Kafka consumer application. It includes logs fr
 #### Closing points:
 
 The Java code provides a complete Kafka-based solution for managing cab location updates. The `CabLocationController` generates random latitude and longitude, which is sent to the `CabLocationService` that publishes it to a Kafka topic named `"cab-location"`. The topic is automatically created by the `KafkaConfig` class using Spring's configuration and the constant `CAB_LOCATION`. The producer's properties, including serialization and Kafka server details, are defined in `application.properties`. A consumer service, `LocationService`, listens to the same Kafka topic and logs the received location updates. Postman demonstrates successful location updates, and logs confirm consumer partition assignment.
+
+[repo-link]: https://github.com/siddhesh2263/kafka_dailycodebuffer

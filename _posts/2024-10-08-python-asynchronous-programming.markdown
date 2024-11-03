@@ -5,7 +5,10 @@ date:   2024-10-08 10:02:29 -0400
 categories: jekyll update
 ---
 
+
 ## Part 1 - Threading Module
+
+Click [here][repo-link-threading] for code repository.
 
 Threads wouldn't be ideal where a lot of computation is involved. If there are operations that involve image resizing, etc., threading would not speed up the process by that much. That would be an example of something that is CPU bound, and not IO bound. In those scenarios, threads can slow down the script, because threads involve some overhead when they are created and destroyed. So, given the case, we need to decide whether we need to go with threading, or multiprocessing.
 
@@ -38,6 +41,8 @@ We now see an example where images are downloaded from the internet. The `downlo
 <br/>
 
 ## Part 2 - Multiprocessing Module
+
+Click [here][repo-link-multiprocessing] for code repository.
 
 We'll be using Python's inbuilt `multiprocessing` module to work with processes.
 
@@ -108,3 +113,6 @@ Use benchmarks to determine if threading or multiprocessing is a better fit.
 Use threads for activities that are IO bound. Use processed for activities that are CPU bound.
 
 Even if there are more processes than cores, it was still able to finish in lesser time. Why?
+
+[repo-link-threading]: https://github.com/siddhesh2263/corey_threading
+[repo-link-multiprocessing]: https://github.com/siddhesh2263/corey_multiprocessing

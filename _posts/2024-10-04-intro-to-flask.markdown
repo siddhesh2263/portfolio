@@ -4,6 +4,10 @@ title:  "Python - Learning the Flask framework with a side project"
 date:   2024-10-04 16:02:29 -0400
 categories: jekyll update
 ---
+
+Click [here][repo-link] for code repository.
+
+
 Flask is fun to work with. I'm currently working on templates, and how the concept of inheritance comes into play while working with files having many lines of repeated code. There is something called as `block elements`, which help to prevent rewriting of code.
 
 The following functions were used to build an initial version of the blogging application I'm working on:
@@ -333,3 +337,5 @@ The below code initializes the Flask application. It sets up various components 
 ![image tooltip here]({{ "/assets/flask/error_pages/036_add_init.png" | relative_url }})
 
 <br/>
+
+[repo-link]: https://github.com/siddhesh2263/flask_corey

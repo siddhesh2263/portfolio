@@ -5,6 +5,8 @@ date:   2024-10-12 10:02:29 -0400
 categories: jekyll update
 ---
 
+Click [here][repo-link] for code repository.
+
 
 Install the following:
 1. Docker
@@ -403,3 +405,5 @@ kubectl scale deployment --replicas=1 gateway - to observer any errors, scaling 
 Delete all files before clean install (check hidden files in Program Data dir.) The `mysql` command works in Windows cmd, but not in git bash.
 
 <br/>
+
+[repo-link]: https://github.com/siddhesh2263/python_system_design

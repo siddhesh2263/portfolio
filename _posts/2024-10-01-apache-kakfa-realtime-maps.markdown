@@ -5,6 +5,9 @@ date:   2024-10-01 00:02:29 -0400
 categories: jekyll update
 ---
 
+Click [here][repo-link] for code repository.
+
+
 ## 10/7/2024
 
 #### Initial Setup Instructions (not mandatory)
@@ -85,3 +88,5 @@ The image shows a live map, built using Leaflet and OpenStreetMap, displaying ma
 ![image tooltip here]({{ "/assets/kafka_busdata/005_final_live_map.png" | relative_url }})
 
 <br/>
+
+[repo-link]: https://github.com/siddhesh2263/kafka_busdata
