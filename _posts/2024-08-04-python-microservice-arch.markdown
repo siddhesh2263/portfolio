@@ -35,7 +35,7 @@ The auth service is going to have its own MySQL database.
 
 This SQL script creates a MySQL user, database, and table for storing user data. The script grants all privileges to the user and defines a user table with fields id, email, and password.
 
-![image tooltip here](/assets/python_sys_design/002_sql_file.png)
+![image tooltip here]({{ "/assets/python_sys_design/002_sql_file.png" | relative_url }})
 
 <br/>
 
@@ -49,25 +49,25 @@ Regarding the difference between `0.0.0.0` and `localhost` (related to loopback 
 
 The below image shows a server.py file in a Flask project, where the Flask app is connected to a MySQL database using environment variables. It utilizes the `flask_mysqldb` package to establish a MySQL connection.
 
-![image tooltip here](/assets/python_sys_design/001_db_config.png)
+![image tooltip here]({{ "/assets/python_sys_design/001_db_config.png" | relative_url }})
 
 <br/>
 
 The below image shows a login route in a Flask app that validates a user's credentials from a MySQL database. It checks the email and password from the user table. If the credentials are valid, a JWT is created and returned. Otherwise, it returns an "invalid credentials" error.
 
-![image tooltip here](/assets/python_sys_design/003_login_route.png)
+![image tooltip here]({{ "/assets/python_sys_design/003_login_route.png" | relative_url }})
 
 <br/>
 
 The image shows the `createJWT()` function in Python, which generates a JWT (JSON Web Token). The token contains user data (username), expiration time (exp), issue time (iat), and additional authorization (admin). The token is signed using a secret key and the HS256 algorithm.
 
-![image tooltip here](/assets/python_sys_design/004_create_jwt.png)
+![image tooltip here]({{ "/assets/python_sys_design/004_create_jwt.png" | relative_url }})
 
 <br/>
 
 The below image shows the `/validate` route in Flask that decodes and validates a JWT passed in the Authorization header. If the token is missing or invalid, it returns an authorization error. The JWT is decoded using the same secret key and algorithm used during its creation.
 
-![image tooltip here](/assets/python_sys_design/005_validate_jwt.png)
+![image tooltip here]({{ "/assets/python_sys_design/005_validate_jwt.png" | relative_url }})
 
 <br/>
 
@@ -94,13 +94,13 @@ Then do: `docker push siddhesh2263/auth:latest`
 
 The image shows the Docker Hub repository named `siddhesh2263/auth`, containing an `auth` microservice image tagged as `latest`. This image was recently pushed, ready for Kubernetes deployment.
 
-![image tooltip here](/assets/python_sys_design/006_docker_auth_latest.png)
+![image tooltip here]({{ "/assets/python_sys_design/006_docker_auth_latest.png" | relative_url }})
 
 <br/>
 
 The image shows the Dockerfile setup for an `auth` microservice, based on `python:3.10-bullseye`. It installs necessary dependencies, sets up the app directory, installs Python packages, and exposes port 5000.
 
-![image tooltip here](/assets/python_sys_design/007_docker_file.png)
+![image tooltip here]({{ "/assets/python_sys_design/007_docker_file.png" | relative_url }})
 
 <br/>
 
@@ -127,37 +127,37 @@ The gateway will be responsible for directing requests to the auth service, uplo
 
 The image illustrates a microservice architecture featuring an API Gateway, auth service, video-to-MP3 conversion service, notification service, and a message queue. The system includes separate databases for authentication and storage.
 
-![image tooltip here](/assets/python_sys_design/008_system_design.png)
+![image tooltip here]({{ "/assets/python_sys_design/008_system_design.png" | relative_url }})
 
 <br/>
 
 The code snippet shows the Flask-based API gateway setup, connecting to a MongoDB instance and RabbitMQ. It uses `PyMongo` for MongoDB interactions and `pika` for RabbitMQ messaging.
 
-![image tooltip here](/assets/python_sys_design/014_gateway_initialization.png)
+![image tooltip here]({{ "/assets/python_sys_design/014_gateway_initialization.png" | relative_url }})
 
 <br/>
 
 The image shows Flask API endpoints for login and file upload. The `login` route generates a token, while the `upload` route validates admin access and handles single-file uploads using the utility function.
 
-![image tooltip here](/assets/python_sys_design/015_routes_login_upload.png)
+![image tooltip here]({{ "/assets/python_sys_design/015_routes_login_upload.png" | relative_url }})
 
 <br/>
 
 The image shows the Python function in `access.py` for handling user login. It retrieves credentials from the request, sends them to the authentication service, and returns a response based on authentication success.
 
-![image tooltip here](/assets/python_sys_design/016_login_gateway.png)
+![image tooltip here]({{ "/assets/python_sys_design/016_login_gateway.png" | relative_url }})
 
 <br/>
 
 The image shows the `token` validation function in `validate.py`, where it verifies the presence of an authorization token in request headers, then forwards it to an authentication service for verification.
 
-![image tooltip here](/assets/python_sys_design/017_validate_token_gateway.png)
+![image tooltip here]({{ "/assets/python_sys_design/017_validate_token_gateway.png" | relative_url }})
 
 <br/>
 
 The image shows the `upload` function in Python that stores a video file in MongoDB and publishes a message to a RabbitMQ queue. It uses persistent delivery mode for message durability.
 
-![image tooltip here](/assets/python_sys_design/018_util_upload_code.png)
+![image tooltip here]({{ "/assets/python_sys_design/018_util_upload_code.png" | relative_url }})
 
 <br/>
 
@@ -169,16 +169,16 @@ When the user sends a video to the gateway, the gateway will store the video in 
 The gateway is synchronous with the `auth` service. It is `asynchronous` with the convertor service.
 
 The converter service needs to be added to the system host IP list, found in the `/etc/host` path:
-![image tooltip here](/assets/python_sys_design/010_add_converter_service_1.png)
+![image tooltip here]({{ "/assets/python_sys_design/010_add_converter_service_1.png" | relative_url }})
 
-![image tooltip here](/assets/python_sys_design/011_add_converter_service_2.png)
+![image tooltip here]({{ "/assets/python_sys_design/011_add_converter_service_2.png" | relative_url }})
 
 <br/>
 
 
 The gateway service needs to be created into a Docker image, which will then be used by the Kubernetes cluster when the services are set up. Once created, it needs to be pushed to the Docker hub, using the `docker tag` command:
 
-![image tooltip here](/assets/python_sys_design/009_docker_tag_1.png)
+![image tooltip here]({{ "/assets/python_sys_design/009_docker_tag_1.png" | relative_url }})
 
 <br/>
 
@@ -190,7 +190,7 @@ minikube addons list
 
 Ingress is currently disabled.
 
-![image tooltip here](/assets/python_sys_design/012_enable_ingress_op.png)
+![image tooltip here]({{ "/assets/python_sys_design/012_enable_ingress_op.png" | relative_url }})
 
 Command:
 ```
@@ -203,7 +203,7 @@ minikube tunnel
 ```
 
 Deploy the YAML files for gateway.
-![image tooltip here](/assets/python_sys_design/013_create_gateway_service.png)
+![image tooltip here]({{ "/assets/python_sys_design/013_create_gateway_service.png" | relative_url }})
 
 
 Since the rabbitmq host is not defined, there is an error. We'll scale down the gateway deployment for now:
@@ -227,13 +227,13 @@ show collections
 
 The RabbitMQ console URL needs to be added in the host list. This is to ensure that when we try to access the RabbitMQ UI through browser, we will be able to see the console.
 
-![image tooltip here](/assets/python_sys_design/023_rabbitmq_console.png)
+![image tooltip here]({{ "/assets/python_sys_design/023_rabbitmq_console.png" | relative_url }})
 
 <br/>
 
 We need a stateful set for Rabbitmq. Rabbitmq needs to be persistent. We don't want to lose the messages if the queue crashes. We would need to write it to a local disc.
 
-![image tooltip here](/assets/python_sys_design/028_rabbitmq_stateful_yaml.png)
+![image tooltip here]({{ "/assets/python_sys_design/028_rabbitmq_stateful_yaml.png" | relative_url }})
 
 <br/>
 
@@ -242,7 +242,7 @@ amqp - advanced message queue protocol - this protocol will be used to send mess
 
 We also need to create a persistent volume claim, its rules written in the pvc.yaml file.
 
-![image tooltip here](/assets/python_sys_design/029_pvc_rabbitmq.png)
+![image tooltip here]({{ "/assets/python_sys_design/029_pvc_rabbitmq.png" | relative_url }})
 
 <br/>
 
@@ -288,19 +288,19 @@ Durable
 
 First, we initialize all the connection with the MongoDB service and the RabbitMQ service:
 
-![image tooltip here](/assets/python_sys_design/024_converter_consumer_initialization_1.png)
+![image tooltip here]({{ "/assets/python_sys_design/024_converter_consumer_initialization_1.png" | relative_url }})
 
 <br/>
 
 The callback function is responsible for sending an acknowledge or a negative acknowledge to the queue. This is based on whether if the converter service is able to consume the video data from the `videos` queue. The `mp3.start()` function is responsible for consuming the details:
 
-![image tooltip here](/assets/python_sys_design/025_converter_consumer_callback_2.png)
+![image tooltip here]({{ "/assets/python_sys_design/025_converter_consumer_callback_2.png" | relative_url }})
 
 <br/>
 
 The `mp3.start()` function performs video to mp3 conversion, saving the mp3 file to the database, and pushing the mp3 details to the `mp3` queue. We'll focus on the last 2 parts. This code snippet illustrates the process of saving an MP3 file to MongoDB and publishing a message to an MP3-specific queue in RabbitMQ, ensuring reliable messaging with persistent delivery mode. The file is read, stored in MongoDB, and the file ID is updated in the message. If publishing to RabbitMQ fails, the corresponding file in MongoDB is deleted to maintain data integrity, preventing orphaned files in case of queue errors.
 
-![image tooltip here](/assets/python_sys_design/026_mp3_converter.png)
+![image tooltip here]({{ "/assets/python_sys_design/026_mp3_converter.png" | relative_url }})
 
 <br/>
 
@@ -310,13 +310,13 @@ Then we need to make the Dockerfiles for the Kubernetes cluster deployment.
 
 In the Dockerfile, need to add a new dependency: `ffmpeg`, which will be used by the `moviepy` library.
 
-![image tooltip here](/assets/python_sys_design/030_docker_file_converter.png)
+![image tooltip here]({{ "/assets/python_sys_design/030_docker_file_converter.png" | relative_url }})
 
 <br/>
 
 Since it's a consumer, we will not be exposing any ports, as it won't be a service that we'll be making requests to. It will be acting on its own. We won't be needing secret, or service file for the converter deployment. A secret file is created just as a template, but won't be used. We need configmap to store the `MP3_QUEUE` and the `VIDEO_QUEUE` environment variables, which will be used by the converter service.
 
-![image tooltip here](/assets/python_sys_design/031_converter_config_map.png)
+![image tooltip here]({{ "/assets/python_sys_design/031_converter_config_map.png" | relative_url }})
 
 <br/>
 
@@ -333,25 +333,25 @@ The notification service is responsible for sending an email to the client when 
 
 Below is the code for the consumer of the notification service. It is similar in ways to the consumer of the converter service.
 
-![image tooltip here](/assets/python_sys_design/019_consumer_notification_service.png)
+![image tooltip here]({{ "/assets/python_sys_design/019_consumer_notification_service.png" | relative_url }})
 
 <br/>
 
 The `email.notification` function is called, which is responsible for sending the email.
 
-![image tooltip here](/assets/python_sys_design/020_email_not_service.png)
+![image tooltip here]({{ "/assets/python_sys_design/020_email_not_service.png" | relative_url }})
 
 <br/>
 
 The email server details will be stored in the Secrets file:
 
-![image tooltip here](/assets/python_sys_design/021_notification_secret.png)
+![image tooltip here]({{ "/assets/python_sys_design/021_notification_secret.png" | relative_url }})
 
 <br/>
 
 The name of the messaging queues is stored in the config map file:
 
-![image tooltip here](/assets/python_sys_design/022_config_notification.png)
+![image tooltip here]({{ "/assets/python_sys_design/022_config_notification.png" | relative_url }})
 
 <br/>
 
@@ -398,7 +398,7 @@ kubectl scale deployment --replicas=1 gateway - to observer any errors, scaling 
 ```
 4. Common for all the modules: Freeze the pip dependencies in a requirements.txt file, before building the Dockerfile for that module.
 5. A general overview of a Kubernetes deployment. This Kubernetes architecture diagram illustrates a deployment with a service (gateway) selecting pods labeled "app=A." It highlights the flow from deployment to ReplicaSet, managing multiple pod instances with unique IPs:
-![image tooltip here](/assets/python_sys_design/027_general_k8_structure.png)
+![image tooltip here]({{ "/assets/python_sys_design/027_general_k8_structure.png" | relative_url }})
 6. Installation of MySQL:
 Delete all files before clean install (check hidden files in Program Data dir.) The `mysql` command works in Windows cmd, but not in git bash.
 
