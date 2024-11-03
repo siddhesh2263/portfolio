@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Python - Microservice Architecture using Kubernetes, RabbitMQ, MongoDB, and MySQL"
-date:   2024-08-02 10:02:29 -0400
+date:   2024-10-12 10:02:29 -0400
 categories: jekyll update
 ---
 

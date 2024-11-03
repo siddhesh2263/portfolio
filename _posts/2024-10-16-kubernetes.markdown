@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Kubernetes - A brief overview"
-date:   2024-08-01 00:02:29 -0400
+date:   2024-10-16 00:02:29 -0400
 categories: jekyll update
 ---
 

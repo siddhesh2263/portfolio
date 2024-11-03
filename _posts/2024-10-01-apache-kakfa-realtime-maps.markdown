@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Streaming - (dummy) Realtime maps using Kafka, Python, & JavaScript"
-date:   2024-10-06 00:02:29 -0400
+date:   2024-10-01 00:02:29 -0400
 categories: jekyll update
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Python - Learning the Flask framework with a side project"
-date:   2024-08-26 16:02:29 -0400
+date:   2024-10-04 16:02:29 -0400
 categories: jekyll update
 ---
 Flask is fun to work with. I'm currently working on templates, and how the concept of inheritance comes into play while working with files having many lines of repeated code. There is something called as `block elements`, which help to prevent rewriting of code.
